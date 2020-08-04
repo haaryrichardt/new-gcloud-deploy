@@ -2,6 +2,8 @@ steps:
 - name: node
   entrypoint: yarn
   args: [ 'install' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/myreact-image', '.' ]
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy","app/app.yaml"]
 
