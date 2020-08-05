@@ -1,10 +1,10 @@
 steps:
-- name: node
-  entrypoint: yarn
-  args: [ 'install' ]
+#- name: node
+#  entrypoint: yarn
+#  args: [ 'install' ]
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy","app/app.yaml"]
   timeout: 800s
 
-images:
-- 'gcr.io/$PROJECT_ID/myreact-image'
+#images:
+#- 'gcr.io/$PROJECT_ID/myreact-image'
