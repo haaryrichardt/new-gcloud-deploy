@@ -4,7 +4,9 @@ steps:
 #  args: [ 'install' ]
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy","app/app.yaml"]
-  timeout: 800s
+  timeout: 2000s
+
+timeout: 2000s
 
 #images:
 #- 'gcr.io/$PROJECT_ID/myreact-image'
