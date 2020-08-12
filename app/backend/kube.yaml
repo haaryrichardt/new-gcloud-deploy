@@ -29,7 +29,7 @@ metadata:
   name: gke-react-back
 spec:
   ports:
-  - nodePort: 30305
+  - nodePort: 30307
     port: 80
     protocol: TCP
     targetPort: 3001
