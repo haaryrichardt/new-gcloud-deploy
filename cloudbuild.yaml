@@ -13,13 +13,13 @@ steps:
 #- name: "gcr.io/cloud-builders/docker"
 #  args: ["push", "gcr.io/$PROJECT_ID/react-books-back"]
 
-#- name: 'gcr.io/cloud-builders/kubectl'
-#  args:
-#  - 'apply'
-#  - '-f'
-#  - 'app/backend/kube.yaml'
-#  env:
-#  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-#  - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'apply'
+  - '-f'
+  - 'app/backend/kube.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
 
 
