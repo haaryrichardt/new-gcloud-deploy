@@ -1,12 +1,16 @@
 steps:
-#- name: node
-#  entrypoint: yarn
-#  args: [ 'install' ]
-- name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy","app/app.yaml"]
-  timeout: 2000s
+  # build the container images
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/gke-react", "./app/"]
+  # push the container image to gcloud registry
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/$PROJECT_ID/gke-react"]
 
-timeout: 2000s
-
-#images:
-#- 'gcr.io/$PROJECT_ID/myreact-image'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'apply'
+  - '-f'
+  - 'app/kubeconfig.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
