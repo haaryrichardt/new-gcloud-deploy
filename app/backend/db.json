@@ -9,7 +9,7 @@
       "price": "1999/-",
       "genre": "Fiction",
       "format": "pdf",
-      "id": 5
+      "id": 1
     },
     {
       "title": "Hardy Boys",
@@ -20,7 +20,7 @@
       "price": "999/-",
       "genre": "Mystery",
       "format": "pdf",
-      "id": 6
+      "id": 2
     }
   ]
 }
