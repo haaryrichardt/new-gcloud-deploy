@@ -48,6 +48,7 @@ spec:
   type: LoadBalancer
   loadBalancerIP: "34.120.227.215"
 ---
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: my-ingress
