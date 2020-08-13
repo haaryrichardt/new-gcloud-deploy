@@ -46,16 +46,16 @@ spec:
   selector:
     app: gke-react-back
   type: LoadBalancer
+  loadBalancerIP: "34.120.227.215"
 ---
-apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: my-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: my-backend
+  labels:
+    app: my-ingress
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /*
-        backend:
-          serviceName: gke-react-back
-          servicePort: 80
+  backend:
+    serviceName: gke-react-back
+    servicePort: 80
